@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Accueil {% endblock %}
+{% block content %}
+
+    <div class="row" style="min-height:300px;">
+        <div class="col-lg-12 ">
+            <h5 class="bg-info text-center"> {{message}}</h5>
+            <form action="{% url 'parse' %}"  method="POST">
+                {% csrf_token %}
+                <div class="form-group card-body">
+                    <div class="row">
+
+                        <div class="col-lg-8">
+                            <input type="text" class="form-control " value="" name="url" placeholder="Entre l'url du site à analyser " />
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="submit" class="btn btn-success col-lg-4" value="Analyser" />
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div> 
+    </div>
+
+    <pre>  
+        <div>
+            {{ soup }}
+            {{ message }}
+        </div>
+        <div>
+            <table class="table">
+                <tr>
+                    <th>Element</th>
+                    <th>Valeur</th>
+                </tr>
+                <tr>
+                    <td>Titre: </td>
+                    <td>{{title}}</td>
+                </tr>
+                <tr>
+                    <td>Total des liens: </td>
+                    <td>
+                        <div>{{links.links}}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Liens internes : </td>
+                    <td>
+                        <div>{{links.nbint}}</div> 
+                        <div>{{links.int_links}}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Liens externes : </td>
+                    <td>
+                        <div>{{links.nbext}}</div> 
+                        <div>{{links.ext_links}}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Version du HTML: </td>
+                    <td>{{version}}</td>
+                </tr>
+                <tr>
+                    <td>Headers(h1..h6)</td>
+                    <td>{% for level, count in hx.items %}
+                        <h{{level}}> h{{level}}: {{count}}<br/></h{{level}}>
+                        {% endfor %}
+                    </td>
+                </tr>
+            </table>
+    
+    </pre>
+      
+        <br/>
+ {% endblock %}
