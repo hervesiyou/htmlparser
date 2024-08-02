@@ -1,6 +1,9 @@
 # Application de parsing d'une page HTML( par Herve Stephane )
 `hervesiyou@gmail.com`
 
+## DEPOT
+
+- le depot est sur GITHUB: `https://github.com/hervesiyou/htmlparser.git`
  
 ## COMMENT LANCER L'APPLICATION ?`
 
