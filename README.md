@@ -10,9 +10,15 @@
 - Installer les modules `pip install -r requirements.txt`
 - Lancer la commande  `python manage.py runserver`
 - Aller dans un navigateur taper `127.0.0.1:8000` consulter l'application
+- Vous pouvez aussi lancer le project avec la commande `make launch`à partir de la racine du projet
+- Et lancer les tests avec `make run_tests`
+  
 
 ### CONTRAINTES ET LIMITATIONS `
 
+- je ne verifie pas profondement les cas d'exception,
+- les tests ne sont pas poussés
+- je dois verifier plutard que la connexion internet est on
 
 
 

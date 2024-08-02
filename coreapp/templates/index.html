@@ -5,7 +5,7 @@
     <div class="row" style="min-height:300px;">
         <div class="col-lg-12 ">
             <h5 class="bg-info text-center"> {{message}}</h5>
-            <form action="{% url 'parse' %}"  method="POST">
+            <form action="{% url 'index' %}"  method="POST">
                 {% csrf_token %}
                 <div class="form-group card-body">
                     <div class="row">
@@ -23,11 +23,6 @@
         </div> 
     </div>
 
-    <pre>  
-        <div>
-            {{ soup }}
-            {{ message }}
-        </div>
         <div>
             <table class="table">
                 <tr>
@@ -69,9 +64,21 @@
                         {% endfor %}
                     </td>
                 </tr>
+                <tr>
+                    <td>Formulaire de login? : </td>
+                    <td>
+                        <div>{{login_form}}</div>  
+                    </td>
+                </tr>
+                <tr>
+                    <td>Connectivité des liens: </td>
+                    <td> 
+                        {% for lien, etat in reachable.items %}
+                            <a href="{{lien}}"> {{lien}}</a><br/>
+                            <div>{{etat}}<br/>
+                        {% endfor %}
+                    </td>
+                </tr>
             </table>
-    
-    </pre>
-      
         <br/>
  {% endblock %}
